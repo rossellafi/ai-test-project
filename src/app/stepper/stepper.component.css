@@ -1,0 +1,149 @@
+:host {
+  --color-primary: #629d37;
+  --colors-grey-200: #dfdfdf;
+  --color-stroke-input-primary: #c8c8c8;
+  --colors-base-white: #fff;
+  --color-text-primary: #000;
+  --step-symbol-size: 36px;
+  --step-trail-width: 80px;
+  --step-gap: 4px;
+}
+
+.stepper-container {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+
+.stepper-content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--step-gap);
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.step-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--step-gap);
+  flex: 0 0 auto;
+}
+
+.step-symbol-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: var(--step-symbol-size);
+}
+
+.step-symbol {
+  display: flex;
+  height: var(--step-symbol-size);
+  width: var(--step-symbol-size);
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--color-stroke-input-primary);
+  background: var(--colors-base-white);
+  transition: all 0.3s ease;
+}
+
+.step-symbol-container.active .step-symbol {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.step-icon {
+  width: 20px;
+  height: 20px;
+  color: #545454;
+  transition: color 0.3s ease;
+}
+
+.step-symbol-container.active .step-icon {
+  color: var(--colors-base-white);
+}
+
+.step-label {
+  color: var(--color-text-primary);
+  text-align: center;
+  font-family:
+    "Inter",
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.step-label.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.step-trail {
+  width: var(--step-trail-width);
+  height: 2px;
+  background: var(--colors-grey-200);
+  margin-top: calc(var(--step-symbol-size) / 2 - 1px);
+  flex-shrink: 0;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+  :host {
+    --step-trail-width: 60px;
+    --step-gap: 2px;
+  }
+
+  .stepper-content {
+    justify-content: space-between;
+  }
+
+  .step-label {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :host {
+    --step-trail-width: 40px;
+    --step-symbol-size: 32px;
+  }
+
+  .step-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .step-label {
+    font-size: 11px;
+    line-height: 18px;
+  }
+
+  .stepper-container {
+    padding: 8px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  :host {
+    --step-trail-width: 20px;
+  }
+
+  .step-label {
+    font-size: 10px;
+    line-height: 16px;
+  }
+}
