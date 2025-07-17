@@ -21,7 +21,6 @@
 .stepper-content {
   display: flex;
   align-items: flex-start;
-  gap: var(--step-gap);
   width: 100%;
   flex-wrap: nowrap;
 }
@@ -30,6 +29,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  gap: 8px;
   flex: 0 0 auto;
 }
 
