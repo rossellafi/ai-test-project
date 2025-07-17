@@ -21,6 +21,7 @@
 .stepper-content {
   display: flex;
   align-items: flex-start;
+  gap: 3px;
   width: 100%;
   flex-wrap: nowrap;
 }
