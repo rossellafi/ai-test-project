@@ -14,7 +14,7 @@ export class AppComponent {
   stepperData: StepData[] = [
     {
       id: "1",
-      label: "Projekt Daten",
+      label: "Daten",
       icon: "contract",
       state: "active",
     },
