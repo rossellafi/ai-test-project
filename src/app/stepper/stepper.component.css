@@ -103,12 +103,16 @@
 /* Responsive design for smaller screens */
 @media screen and (max-width: 768px) {
   :host {
-    --step-trail-width: 60px;
+    --step-trail-width: 40px;
     --step-gap: 2px;
   }
 
   .stepper-content {
-    justify-content: space-between;
+    gap: 2px;
+  }
+
+  .step-wrapper {
+    gap: 2px;
   }
 
   .step-label {
@@ -119,8 +123,16 @@
 
 @media screen and (max-width: 480px) {
   :host {
-    --step-trail-width: 40px;
+    --step-trail-width: 20px;
     --step-symbol-size: 32px;
+  }
+
+  .stepper-content {
+    gap: 1px;
+  }
+
+  .step-wrapper {
+    gap: 1px;
   }
 
   .step-icon {
@@ -140,11 +152,29 @@
 
 @media screen and (max-width: 360px) {
   :host {
-    --step-trail-width: 20px;
+    --step-trail-width: 10px;
+  }
+
+  .stepper-content {
+    gap: 0px;
+  }
+
+  .step-wrapper {
+    gap: 0px;
   }
 
   .step-label {
     font-size: 10px;
     line-height: 16px;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .step-trail {
+    display: none;
+  }
+
+  .stepper-content {
+    justify-content: space-evenly;
   }
 }
