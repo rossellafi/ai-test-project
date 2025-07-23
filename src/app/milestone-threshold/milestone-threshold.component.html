@@ -186,33 +186,68 @@
   <!-- Timeline Visualization -->
   <div class="timeline-container">
     <div class="timeline-track">
-      <div class="timeline-marker">
-        <span class="marker-label top">{{ thresholds.green }} Tage</span>
-        <div class="marker-circle green"></div>
-        <span class="marker-label bottom">{{ thresholds.green }} Tage</span>
-      </div>
-      <div class="timeline-segment green"></div>
+      <!-- Before Target Date (vor) -->
+      <ng-container *ngIf="thresholds.greenDirection === 'vor' || thresholds.yellowDirection === 'vor' || thresholds.redDirection === 'vor'">
+        <div class="timeline-marker" *ngIf="thresholds.greenDirection === 'vor'">
+          <span class="marker-label top">{{ thresholds.green }} Tage</span>
+          <div class="marker-circle green"></div>
+          <span class="marker-label bottom">{{ thresholds.green }} Tage</span>
+        </div>
+        <div class="timeline-segment green" *ngIf="thresholds.greenDirection === 'vor'"></div>
 
-      <div class="timeline-marker">
-        <span class="marker-label top">{{ thresholds.yellow }} Tage</span>
-        <div class="marker-circle yellow"></div>
-        <span class="marker-label bottom">{{ thresholds.yellow }} Tage</span>
-      </div>
-      <div class="timeline-segment yellow"></div>
+        <div class="timeline-marker" *ngIf="thresholds.yellowDirection === 'vor'">
+          <span class="marker-label top">{{ thresholds.yellow }} Tage</span>
+          <div class="marker-circle yellow"></div>
+          <span class="marker-label bottom">{{ thresholds.yellow }} Tage</span>
+        </div>
+        <div class="timeline-segment yellow" *ngIf="thresholds.yellowDirection === 'vor'"></div>
 
-      <div class="timeline-marker">
-        <span class="marker-label top">{{ thresholds.red }} Tage</span>
-        <div class="marker-circle red"></div>
-        <span class="marker-label bottom">{{ thresholds.red }} Tage</span>
-      </div>
-      <div class="timeline-segment red"></div>
+        <div class="timeline-marker" *ngIf="thresholds.redDirection === 'vor'">
+          <span class="marker-label top">{{ thresholds.red }} Tage</span>
+          <div class="marker-circle red"></div>
+          <span class="marker-label bottom">{{ thresholds.red }} Tage</span>
+        </div>
+        <div class="timeline-segment red" *ngIf="thresholds.redDirection === 'vor'"></div>
+      </ng-container>
 
+      <!-- Target Date -->
       <div class="timeline-marker target">
         <span class="marker-label top">Datum</span>
         <div class="marker-circle target-date"></div>
         <span class="marker-label bottom target-label">Zieldatum</span>
       </div>
-      <div class="timeline-segment red"></div>
+
+      <!-- After Target Date (nach) -->
+      <ng-container *ngIf="thresholds.greenDirection === 'nach' || thresholds.yellowDirection === 'nach' || thresholds.redDirection === 'nach'">
+        <div class="timeline-segment red" *ngIf="thresholds.redDirection === 'nach'"></div>
+        <div class="timeline-marker" *ngIf="thresholds.redDirection === 'nach'">
+          <span class="marker-label top">{{ thresholds.red }} Tage</span>
+          <div class="marker-circle red"></div>
+          <span class="marker-label bottom">{{ thresholds.red }} Tage</span>
+        </div>
+
+        <div class="timeline-segment yellow" *ngIf="thresholds.yellowDirection === 'nach'"></div>
+        <div class="timeline-marker" *ngIf="thresholds.yellowDirection === 'nach'">
+          <span class="marker-label top">{{ thresholds.yellow }} Tage</span>
+          <div class="marker-circle yellow"></div>
+          <span class="marker-label bottom">{{ thresholds.yellow }} Tage</span>
+        </div>
+
+        <div class="timeline-segment green" *ngIf="thresholds.greenDirection === 'nach'"></div>
+        <div class="timeline-marker" *ngIf="thresholds.greenDirection === 'nach'">
+          <span class="marker-label top">{{ thresholds.green }} Tage</span>
+          <div class="marker-circle green"></div>
+          <span class="marker-label bottom">{{ thresholds.green }} Tage</span>
+        </div>
+      </ng-container>
+
+      <!-- Ending segment if any thresholds are after -->
+      <div class="timeline-segment"
+           *ngIf="thresholds.greenDirection === 'nach' || thresholds.yellowDirection === 'nach' || thresholds.redDirection === 'nach'"
+           [class.green]="thresholds.greenDirection === 'nach'"
+           [class.yellow]="thresholds.yellowDirection === 'nach' && thresholds.greenDirection === 'vor'"
+           [class.red]="thresholds.redDirection === 'nach' && thresholds.yellowDirection === 'vor' && thresholds.greenDirection === 'vor'">
+      </div>
     </div>
   </div>
 
