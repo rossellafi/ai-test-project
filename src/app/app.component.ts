@@ -56,10 +56,10 @@ export class AppComponent {
 
   // Sample tags for demonstration
   sampleTags = [
-    { text: "Allgemein", color: undefined }, // Will get random color
-    { text: "Entwicklung", color: undefined },
-    { text: "Design", color: undefined },
-    { text: "Testing", color: undefined },
-    { text: "Marketing", color: undefined }
+    { text: "Allgemein" }, // Will get random color
+    { text: "Entwicklung" },
+    { text: "Design" },
+    { text: "Testing" },
+    { text: "Marketing" }
   ];
 }
