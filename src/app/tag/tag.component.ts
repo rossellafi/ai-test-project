@@ -17,7 +17,7 @@ export interface TagColor {
 })
 export class TagComponent {
   @Input() text: string = "TAG";
-  @Input() color: TagColor = this.defaultColors[0];
+  @Input() color?: TagColor;
 
   // Predefined color combinations that meet contrast ratio requirements
   defaultColors: TagColor[] = [
@@ -73,7 +73,7 @@ export class TagComponent {
 
   ngOnInit() {
     // If no color is explicitly provided, assign a random one
-    if (!this.color || this.color === this.defaultColors[0]) {
+    if (!this.color) {
       this.color = this.getRandomColor();
     }
   }
