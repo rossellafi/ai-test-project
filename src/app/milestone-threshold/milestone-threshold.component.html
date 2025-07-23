@@ -52,7 +52,7 @@
             </div>
             <span class="field-label">Tage</span>
             <div class="dropdown-field">
-              <select class="dropdown-select">
+              <select class="dropdown-select" [value]="thresholds.greenDirection" (change)="onGreenDirectionChange($any($event.target).value)">
                 <option value="vor">vor</option>
                 <option value="nach">nach</option>
               </select>
@@ -110,7 +110,7 @@
             </div>
             <span class="field-label">Tage</span>
             <div class="dropdown-field">
-              <select class="dropdown-select">
+              <select class="dropdown-select" [value]="thresholds.yellowDirection" (change)="onYellowDirectionChange($any($event.target).value)">
                 <option value="vor">vor</option>
                 <option value="nach">nach</option>
               </select>
@@ -168,12 +168,12 @@
             </div>
             <span class="field-label">Tage</span>
             <div class="dropdown-field">
-              <select class="dropdown-select">
+              <select class="dropdown-select" [value]="thresholds.redDirection" (change)="onRedDirectionChange($any($event.target).value)">
                 <option value="vor">vor</option>
                 <option value="nach">nach</option>
               </select>
               <svg class="dropdown-icon" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M13.9375 6.75004C13.9375 6.75004 10.6233 11.25 9.4375 11.25C8.2516 11.25 4.9375 6.75 4.9375 6.75" stroke="#545454" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13.9375 6.75004C13-9375 6.75004 10.6233 11.25 9.4375 11.25C8.2516 11.25 4.9375 6.75 4.9375 6.75" stroke="#545454" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
             <span class="field-label">dem Zieldatum rot sein.</span>
