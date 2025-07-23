@@ -2,10 +2,11 @@ import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 import { StepperComponent, StepData } from "./stepper/stepper.component";
 import { ProjectCardComponent, ProjectData } from "./project-card/project-card.component";
+import { MilestoneThresholdComponent, ThresholdData } from "./milestone-threshold/milestone-threshold.component";
 
 @Component({
   selector: "app-root",
-  imports: [RouterOutlet, StepperComponent, ProjectCardComponent],
+  imports: [RouterOutlet, StepperComponent, ProjectCardComponent, MilestoneThresholdComponent],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
 })
@@ -40,5 +41,12 @@ export class AppComponent {
     phase: "Projektentwicklung",
     epc: "WI Energy Entwicklung GmbH",
     isFavorite: false
+  };
+
+  thresholdData: ThresholdData = {
+    green: 30,
+    yellow: 14,
+    red: 7,
+    notificationsEnabled: true
   };
 }
