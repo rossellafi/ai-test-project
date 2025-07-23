@@ -47,6 +47,9 @@ export class AppComponent {
     green: 30,
     yellow: 14,
     red: 7,
+    greenDirection: 'vor',
+    yellowDirection: 'vor',
+    redDirection: 'vor',
     notificationsEnabled: true
   };
 }
