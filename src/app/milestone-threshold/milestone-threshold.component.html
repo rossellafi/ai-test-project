@@ -1,0 +1,274 @@
+<div class="threshold-content">
+  <div class="description">
+    <p class="description-text">
+      Legen Sie Schwellenwerte fest, wann sich der Status (Farbe) von Meilensteinen ändern soll.
+    </p>
+  </div>
+  
+  <div class="configuration-container">
+    <div class="threshold-configuration">
+      <!-- Green Section -->
+      <div class="section-container">
+        <div class="section-header">
+          <svg class="status-circle green" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="10.4375" cy="10" r="10" fill="#8AB446"/>
+          </svg>
+          <h3 class="status-title">Grün</h3>
+        </div>
+        <div class="field-container">
+          <div class="input-field">
+            <span class="field-label">Der Meilenstein soll</span>
+            <div class="number-input-container">
+              <div class="number-input">
+                <input 
+                  type="number" 
+                  [value]="thresholds.green" 
+                  (input)="onGreenChange(+$any($event.target).value)"
+                  class="number-field"
+                  min="1"
+                  max="365"
+                >
+                <div class="counter-buttons">
+                  <button 
+                    class="counter-btn"
+                    (click)="onGreenChange(thresholds.green + 1)"
+                    type="button"
+                  >
+                    <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.43748 7.5C9.43748 7.5 7.22802 4.50001 6.43747 4.5C5.64692 4.5 3.4375 7.5 3.4375 7.5" stroke="#545454" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button
+                    class="counter-btn"
+                    (click)="onGreenChange(thresholds.green > 1 ? thresholds.green - 1 : 1)"
+                    type="button"
+                  >
+                    <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.4375 4.50002C9.4375 4.50002 7.22805 7.5 6.4375 7.5C5.6469 7.5 3.4375 4.5 3.4375 4.5" stroke="#545454" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <span class="field-label">Tage</span>
+            <div class="dropdown-field">
+              <select class="dropdown-select" [value]="thresholds.greenDirection" (change)="onGreenDirectionChange($any($event.target).value)">
+                <option value="vor">vor</option>
+                <option value="nach">nach</option>
+              </select>
+              <svg class="dropdown-icon" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.9375 6.75004C13.9375 6.75004 10.6233 11.25 9.4375 11.25C8.2516 11.25 4.9375 6.75 4.9375 6.75" stroke="#545454" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="field-label">dem Zieldatum grün sein.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Yellow Section -->
+      <div class="section-container">
+        <div class="section-header">
+          <svg class="status-circle yellow" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="10.4375" cy="10" r="10" fill="#F9D44C"/>
+          </svg>
+          <h3 class="status-title">Gelb</h3>
+        </div>
+        <div class="field-container">
+          <div class="input-field">
+            <span class="field-label">Der Meilenstein soll</span>
+            <div class="number-input-container">
+              <div class="number-input">
+                <input 
+                  type="number" 
+                  [value]="thresholds.yellow" 
+                  (input)="onYellowChange(+$any($event.target).value)"
+                  class="number-field"
+                  min="1"
+                  max="365"
+                >
+                <div class="counter-buttons">
+                  <button 
+                    class="counter-btn"
+                    (click)="onYellowChange(thresholds.yellow + 1)"
+                    type="button"
+                  >
+                    <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.43748 7.5C9.43748 7.5 7.22802 4.50001 6.43747 4.5C5.64692 4.5 3.4375 7.5 3.4375 7.5" stroke="#545454" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button
+                    class="counter-btn"
+                    (click)="onYellowChange(thresholds.yellow > 1 ? thresholds.yellow - 1 : 1)"
+                    type="button"
+                  >
+                    <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.4375 4.50002C9.4375 4.50002 7.22805 7.5 6.4375 7.5C5.6469 7.5 3.4375 4.5 3.4375 4.5" stroke="#545454" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <span class="field-label">Tage</span>
+            <div class="dropdown-field">
+              <select class="dropdown-select" [value]="thresholds.yellowDirection" (change)="onYellowDirectionChange($any($event.target).value)">
+                <option value="vor">vor</option>
+                <option value="nach">nach</option>
+              </select>
+              <svg class="dropdown-icon" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.9375 6.75004C13.9375 6.75004 10.6233 11.25 9.4375 11.25C8.2516 11.25 4.9375 6.75 4.9375 6.75" stroke="#545454" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="field-label">dem Zieldatum gelb sein.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Red Section -->
+      <div class="section-container">
+        <div class="section-header">
+          <svg class="status-circle red" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="10.4375" cy="10" r="10" fill="#D24A43"/>
+          </svg>
+          <h3 class="status-title">Rot</h3>
+        </div>
+        <div class="field-container">
+          <div class="input-field">
+            <span class="field-label">Der Meilenstein soll</span>
+            <div class="number-input-container">
+              <div class="number-input">
+                <input 
+                  type="number" 
+                  [value]="thresholds.red" 
+                  (input)="onRedChange(+$any($event.target).value)"
+                  class="number-field"
+                  min="1"
+                  max="365"
+                >
+                <div class="counter-buttons">
+                  <button 
+                    class="counter-btn"
+                    (click)="onRedChange(thresholds.red + 1)"
+                    type="button"
+                  >
+                    <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.43748 7.5C9.43748 7.5 7.22802 4.50001 6.43747 4.5C5.64692 4.5 3.4375 7.5 3.4375 7.5" stroke="#545454" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button
+                    class="counter-btn"
+                    (click)="onRedChange(thresholds.red > 1 ? thresholds.red - 1 : 1)"
+                    type="button"
+                  >
+                    <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.4375 4.50002C9.4375 4.50002 7.22805 7.5 6.4375 7.5C5.6469 7.5 3.4375 4.5 3.4375 4.5" stroke="#545454" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <span class="field-label">Tage</span>
+            <div class="dropdown-field">
+              <select class="dropdown-select" [value]="thresholds.redDirection" (change)="onRedDirectionChange($any($event.target).value)">
+                <option value="vor">vor</option>
+                <option value="nach">nach</option>
+              </select>
+              <svg class="dropdown-icon" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.9375 6.75004C13-9375 6.75004 10.6233 11.25 9.4375 11.25C8.2516 11.25 4.9375 6.75 4.9375 6.75" stroke="#545454" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="field-label">dem Zieldatum rot sein.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline Visualization -->
+  <div class="timeline-container">
+    <div class="timeline-track">
+      <!-- Before Target Date (vor) -->
+      <ng-container *ngIf="thresholds.greenDirection === 'vor' || thresholds.yellowDirection === 'vor' || thresholds.redDirection === 'vor'">
+        <div class="timeline-marker" *ngIf="thresholds.greenDirection === 'vor'">
+          <span class="marker-label top">{{ thresholds.green }} Tage</span>
+          <div class="marker-circle green"></div>
+          <span class="marker-label bottom">{{ thresholds.green }} Tage</span>
+        </div>
+        <div class="timeline-segment green" *ngIf="thresholds.greenDirection === 'vor'"></div>
+
+        <div class="timeline-marker" *ngIf="thresholds.yellowDirection === 'vor'">
+          <span class="marker-label top">{{ thresholds.yellow }} Tage</span>
+          <div class="marker-circle yellow"></div>
+          <span class="marker-label bottom">{{ thresholds.yellow }} Tage</span>
+        </div>
+        <div class="timeline-segment yellow" *ngIf="thresholds.yellowDirection === 'vor'"></div>
+
+        <div class="timeline-marker" *ngIf="thresholds.redDirection === 'vor'">
+          <span class="marker-label top">{{ thresholds.red }} Tage</span>
+          <div class="marker-circle red"></div>
+          <span class="marker-label bottom">{{ thresholds.red }} Tage</span>
+        </div>
+        <div class="timeline-segment red" *ngIf="thresholds.redDirection === 'vor'"></div>
+      </ng-container>
+
+      <!-- Target Date -->
+      <div class="timeline-marker target">
+        <span class="marker-label top">Datum</span>
+        <div class="marker-circle target-date"></div>
+        <span class="marker-label bottom target-label">Zieldatum</span>
+      </div>
+
+      <!-- After Target Date (nach) -->
+      <ng-container *ngIf="thresholds.greenDirection === 'nach' || thresholds.yellowDirection === 'nach' || thresholds.redDirection === 'nach'">
+        <div class="timeline-segment red" *ngIf="thresholds.redDirection === 'nach'"></div>
+        <div class="timeline-marker" *ngIf="thresholds.redDirection === 'nach'">
+          <span class="marker-label top">{{ thresholds.red }} Tage</span>
+          <div class="marker-circle red"></div>
+          <span class="marker-label bottom">{{ thresholds.red }} Tage</span>
+        </div>
+
+        <div class="timeline-segment yellow" *ngIf="thresholds.yellowDirection === 'nach'"></div>
+        <div class="timeline-marker" *ngIf="thresholds.yellowDirection === 'nach'">
+          <span class="marker-label top">{{ thresholds.yellow }} Tage</span>
+          <div class="marker-circle yellow"></div>
+          <span class="marker-label bottom">{{ thresholds.yellow }} Tage</span>
+        </div>
+
+        <div class="timeline-segment green" *ngIf="thresholds.greenDirection === 'nach'"></div>
+        <div class="timeline-marker" *ngIf="thresholds.greenDirection === 'nach'">
+          <span class="marker-label top">{{ thresholds.green }} Tage</span>
+          <div class="marker-circle green"></div>
+          <span class="marker-label bottom">{{ thresholds.green }} Tage</span>
+        </div>
+      </ng-container>
+
+      <!-- Ending segment if any thresholds are after -->
+      <div class="timeline-segment"
+           *ngIf="thresholds.greenDirection === 'nach' || thresholds.yellowDirection === 'nach' || thresholds.redDirection === 'nach'"
+           [class.green]="thresholds.greenDirection === 'nach'"
+           [class.yellow]="thresholds.yellowDirection === 'nach' && thresholds.greenDirection === 'vor'"
+           [class.red]="thresholds.redDirection === 'nach' && thresholds.yellowDirection === 'vor' && thresholds.greenDirection === 'vor'">
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Checkbox -->
+  <div class="checkbox-container">
+    <div class="checkbox-wrapper">
+      <input 
+        type="checkbox" 
+        id="notifications"
+        [checked]="thresholds.notificationsEnabled"
+        (change)="onNotificationChange($any($event.target).checked)"
+        class="checkbox-input"
+      >
+      <label for="notifications" class="checkbox-label">
+        <svg class="checkbox-icon" width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.9375" y="0.5" width="15" height="15" rx="3.5" fill="#DEEFD2" [class.checked]="thresholds.notificationsEnabled"/>
+          <rect x="0.9375" y="0.5" width="15" height="15" rx="3.5" stroke="#629D37" [class.checked]="thresholds.notificationsEnabled"/>
+          <path *ngIf="thresholds.notificationsEnabled" d="M13.9102 5.01758L6.9375 12.0488L2.96484 8.01758L4.01953 6.95117L6.9375 9.79883L12.8555 3.95117L13.9102 5.01758Z" fill="#629D37"/>
+        </svg>
+        <span class="notification-text">Benachrichtigung über den Status des Meilensteins senden</span>
+      </label>
+    </div>
+  </div>
+</div>

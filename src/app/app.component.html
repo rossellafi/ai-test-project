@@ -118,6 +118,70 @@
     text-align: center;
   }
 
+  .project-demo {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .project-demo h2 {
+    margin: 0;
+    color: var(--gray-900);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .threshold-demo {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .threshold-demo h2 {
+    margin: 0;
+    color: var(--gray-900);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .tag-demo {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .tag-demo h2 {
+    margin: 0;
+    color: var(--gray-900);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .tag-showcase {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    padding: 20px;
+    background: var(--colors-base-white, #fff);
+    border-radius: 12px;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
   .angular-logo {
     max-width: 9.2rem;
   }
@@ -227,6 +291,25 @@
   <div class="stepper-demo">
     <h2>Stepper Component Demo</h2>
     <app-stepper [steps]="stepperData"></app-stepper>
+  </div>
+
+  <div class="project-demo">
+    <h2>Project Card Demo</h2>
+    <app-project-card [project]="projectData"></app-project-card>
+  </div>
+
+  <div class="threshold-demo">
+    <h2>Milestone Threshold Configuration</h2>
+    <app-milestone-threshold [thresholds]="thresholdData"></app-milestone-threshold>
+  </div>
+
+  <div class="tag-demo">
+    <h2>Tag Component Demo</h2>
+    <div class="tag-showcase">
+      @for (tag of sampleTags; track tag.text) {
+        <app-tag [text]="tag.text"></app-tag>
+      }
+    </div>
   </div>
 </main>
 
