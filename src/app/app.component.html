@@ -302,6 +302,15 @@
     <h2>Milestone Threshold Configuration</h2>
     <app-milestone-threshold [thresholds]="thresholdData"></app-milestone-threshold>
   </div>
+
+  <div class="tag-demo">
+    <h2>Tag Component Demo</h2>
+    <div class="tag-showcase">
+      @for (tag of sampleTags; track tag.text) {
+        <app-tag [text]="tag.text" [color]="tag.color"></app-tag>
+      }
+    </div>
+  </div>
 </main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
