@@ -14,7 +14,7 @@
   align-items: center;
   gap: 8px;
   border-radius: 8px;
-  border: 1px solid;
+  border: 0.5px solid;
   background: var(--color-background-white);
 }
 
@@ -45,7 +45,7 @@
     height: 18px;
     padding: 0 8px;
   }
-  
+
   .tag-label {
     font-size: 12px;
     line-height: 20px;
@@ -58,17 +58,17 @@
     height: 16px;
     padding: 0 6px;
   }
-  
+
   .tag-label {
     font-size: 11px;
     line-height: 18px;
     letter-spacing: 0.2px;
   }
-  
+
   .tag-badge {
     border-radius: 6px;
   }
-  
+
   .tag-content {
     border-radius: 4px;
   }
@@ -85,7 +85,7 @@
   .tag-badge {
     border-width: 2px;
   }
-  
+
   .tag-label {
     font-weight: 800;
   }
