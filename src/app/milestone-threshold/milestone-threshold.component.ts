@@ -6,6 +6,9 @@ export interface ThresholdData {
   green: number;
   yellow: number;
   red: number;
+  greenDirection: 'vor' | 'nach';
+  yellowDirection: 'vor' | 'nach';
+  redDirection: 'vor' | 'nach';
   notificationsEnabled: boolean;
 }
 
@@ -21,6 +24,9 @@ export class MilestoneThresholdComponent {
     green: 30,
     yellow: 14,
     red: 7,
+    greenDirection: 'vor',
+    yellowDirection: 'vor',
+    redDirection: 'vor',
     notificationsEnabled: true
   };
 
@@ -38,5 +44,17 @@ export class MilestoneThresholdComponent {
 
   onNotificationChange(checked: boolean) {
     this.thresholds.notificationsEnabled = checked;
+  }
+
+  onGreenDirectionChange(direction: 'vor' | 'nach') {
+    this.thresholds.greenDirection = direction;
+  }
+
+  onYellowDirectionChange(direction: 'vor' | 'nach') {
+    this.thresholds.yellowDirection = direction;
+  }
+
+  onRedDirectionChange(direction: 'vor' | 'nach') {
+    this.thresholds.redDirection = direction;
   }
 }
