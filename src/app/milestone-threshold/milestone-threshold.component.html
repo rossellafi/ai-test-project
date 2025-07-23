@@ -38,9 +38,9 @@
                       <path d="M9.43748 7.5C9.43748 7.5 7.22802 4.50001 6.43747 4.5C5.64692 4.5 3.4375 7.5 3.4375 7.5" stroke="#545454" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                   </button>
-                  <button 
+                  <button
                     class="counter-btn"
-                    (click)="onGreenChange(Math.max(1, thresholds.green - 1))"
+                    (click)="onGreenChange(thresholds.green > 1 ? thresholds.green - 1 : 1)"
                     type="button"
                   >
                     <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,9 +95,9 @@
                       <path d="M9.43748 7.5C9.43748 7.5 7.22802 4.50001 6.43747 4.5C5.64692 4.5 3.4375 7.5 3.4375 7.5" stroke="#545454" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                   </button>
-                  <button 
+                  <button
                     class="counter-btn"
-                    (click)="onYellowChange(Math.max(1, thresholds.yellow - 1))"
+                    (click)="onYellowChange(thresholds.yellow > 1 ? thresholds.yellow - 1 : 1)"
                     type="button"
                   >
                     <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -152,9 +152,9 @@
                       <path d="M9.43748 7.5C9.43748 7.5 7.22802 4.50001 6.43747 4.5C5.64692 4.5 3.4375 7.5 3.4375 7.5" stroke="#545454" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                   </button>
-                  <button 
+                  <button
                     class="counter-btn"
-                    (click)="onRedChange(Math.max(1, thresholds.red - 1))"
+                    (click)="onRedChange(thresholds.red > 1 ? thresholds.red - 1 : 1)"
                     type="button"
                   >
                     <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
