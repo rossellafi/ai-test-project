@@ -3,10 +3,11 @@ import { RouterOutlet } from "@angular/router";
 import { StepperComponent, StepData } from "./stepper/stepper.component";
 import { ProjectCardComponent, ProjectData } from "./project-card/project-card.component";
 import { MilestoneThresholdComponent, ThresholdData } from "./milestone-threshold/milestone-threshold.component";
+import { TagComponent, TagColor } from "./tag/tag.component";
 
 @Component({
   selector: "app-root",
-  imports: [RouterOutlet, StepperComponent, ProjectCardComponent, MilestoneThresholdComponent],
+  imports: [RouterOutlet, StepperComponent, ProjectCardComponent, MilestoneThresholdComponent, TagComponent],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
 })
@@ -52,4 +53,13 @@ export class AppComponent {
     redDirection: 'vor',
     notificationsEnabled: true
   };
+
+  // Sample tags for demonstration
+  sampleTags = [
+    { text: "Allgemein", color: undefined }, // Will get random color
+    { text: "Entwicklung", color: undefined },
+    { text: "Design", color: undefined },
+    { text: "Testing", color: undefined },
+    { text: "Marketing", color: undefined }
+  ];
 }
