@@ -1,0 +1,129 @@
+:host {
+  --color-background-white: #fff;
+  --font-family-inter: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.tag-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tag-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px solid;
+  background: var(--color-background-white);
+  transition: all 0.2s ease;
+}
+
+.tag-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tag-content {
+  display: flex;
+  height: 20px;
+  padding: 0 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+
+.tag-label {
+  font-family: var(--font-family-inter);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .tag-content {
+    height: 18px;
+    padding: 0 8px;
+  }
+  
+  .tag-label {
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tag-content {
+    height: 16px;
+    padding: 0 6px;
+  }
+  
+  .tag-label {
+    font-size: 11px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+  }
+  
+  .tag-badge {
+    border-radius: 6px;
+  }
+  
+  .tag-content {
+    border-radius: 4px;
+  }
+}
+
+/* Animation for dynamic color changes */
+.tag-content {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Focus states for accessibility */
+.tag-badge:focus-within {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .tag-badge {
+    border-width: 2px;
+  }
+  
+  .tag-label {
+    font-weight: 800;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .tag-badge,
+  .tag-content {
+    transition: none;
+  }
+  
+  .tag-badge:hover {
+    transform: none;
+  }
+  
+  .tag-content {
+    animation: none;
+  }
+}
