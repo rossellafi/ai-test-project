@@ -291,7 +291,7 @@
   .add-note-btn { background: var(--bright-blue); color: #fff; border: 0; border-radius: 999px; padding: .5rem .9rem; cursor: pointer; font-weight: 500; }
 
   /* fixed top bar centered */
-  .top-bar{position:fixed;inset:0 0 auto 0;height:64px;display:flex;align-items:center;justify-content:center;background:transparent;z-index:1200;padding:.5rem}
+  .top-bar{position:fixed;inset:0 0 auto 0;height:64px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--colors-base-white, #fff) 95%, transparent);z-index:1400;padding:.5rem;backdrop-filter: blur(4px);box-shadow: 0 2px 8px rgba(0,0,0,.08)}
   .top-bar-inner{width:100%;max-width:1200px;display:flex;justify-content:center}
   @media screen and (max-width:650px){.top-bar{height:56px;padding:.25rem}.top-bar-inner{padding:0 12px}}
 </style>
