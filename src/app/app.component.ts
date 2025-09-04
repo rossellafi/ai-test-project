@@ -1,4 +1,5 @@
 import { Component, OnDestroy, signal } from "@angular/core";
+import { CommonModule } from "@angular/common";
 import { RouterOutlet } from "@angular/router";
 import { StepperComponent, StepData } from "./stepper/stepper.component";
 import { ProjectCardComponent, ProjectData } from "./project-card/project-card.component";
