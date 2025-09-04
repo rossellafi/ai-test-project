@@ -24,6 +24,25 @@ export class NoteDialogComponent {
     input.value = "";
   }
 
+  onDragOver(event: DragEvent) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  onDragLeave(event: DragEvent) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  onDrop(event: DragEvent) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (!event.dataTransfer?.files) return;
+    const files = Array.from(event.dataTransfer.files);
+    this.selectedFiles.set([...this.selectedFiles(), ...files]);
+  }
+
   removeFile(index: number) {
     const list = [...this.selectedFiles()];
     list.splice(index, 1);
