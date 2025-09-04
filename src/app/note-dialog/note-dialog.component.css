@@ -1,0 +1,16 @@
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;padding:1rem;z-index:1000}
+.dialog-container{background:var(--colors-base-white,#fff);border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,.2);width:100%;max-width:560px;padding:1.25rem;display:flex;flex-direction:column;gap:12px}
+.dialog-title{margin:0;color:var(--gray-900);font-size:1.25rem;font-weight:600}
+.field-label{display:block;font-size:.9rem;color:var(--gray-700);margin-bottom:4px}
+.note-input{width:100%;resize:vertical;border:1px solid var(--color-stroke-input-primary,#c8c8c8);border-radius:8px;padding:.625rem;font:inherit;color:var(--gray-900)}
+.file-section{margin-top:.25rem}
+.file-input{display:block}
+.file-list{list-style:none;margin:.5rem 0 0 0;padding:0;display:flex;flex-direction:column;gap:.5rem}
+.file-item{display:flex;align-items:center;justify-content:space-between;background:color-mix(in srgb,var(--pill-accent,var(--bright-blue)) 5%,transparent);padding:.5rem .75rem;border-radius:8px}
+.file-name{color:var(--gray-900)}
+.remove-file-btn{background:transparent;border:0;color:var(--hot-red);cursor:pointer}
+.actions{display:flex;justify-content:flex-end;gap:.5rem;margin-top:.5rem}
+.btn{border:0;border-radius:999px;padding:.5rem .9rem;cursor:pointer;font-weight:500}
+.btn-secondary{background:var(--colors-grey-200,#dfdfdf);color:var(--gray-900)}
+.btn-primary{background:var(--bright-blue);color:#fff}
+.btn-primary:disabled{opacity:.6;cursor:not-allowed}
