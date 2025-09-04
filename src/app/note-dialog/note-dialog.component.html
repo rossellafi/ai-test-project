@@ -1,0 +1,32 @@
+<div class="overlay" role="dialog" aria-modal="true">
+  <div class="dialog-container">
+    <h3 class="dialog-title">Neue Notiz</h3>
+
+    <label class="field-label" for="note-text">Notiz</label>
+    <textarea
+      id="note-text"
+      class="note-input"
+      rows="5"
+      [value]="noteText()"
+      (input)="noteText.set(($event.target as HTMLTextAreaElement).value)"
+      placeholder="Schreibe deine Notiz..."
+    ></textarea>
+
+    <div class="file-section">
+      <label class="field-label" for="file-input">Dateianhänge</label>
+      <input id="file-input" class="file-input" type="file" multiple (change)="onFileChange($event)" />
+
+      <ul class="file-list" *ngIf="selectedFiles().length > 0">
+        <li class="file-item" *ngFor="let file of selectedFiles(); index as i">
+          <span class="file-name">{{ file.name }}</span>
+          <button class="remove-file-btn" type="button" (click)="removeFile(i)">Entfernen</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">Abbrechen</button>
+      <button type="button" class="btn btn-primary" [disabled]="!noteText().trim()" (click)="onSave()">Speichern</button>
+    </div>
+  </div>
+</div>
