@@ -295,10 +295,12 @@
   @media screen and (max-width: 650px) { .global-top-actions { right: .75rem; top: .75rem } }
 </style>
 
-<!-- Fixed top action bar -->
-<div class="global-top-actions">
-  <button class="add-note-btn" type="button" (click)="openNoteDialog()">Notiz hinzufügen</button>
-</div>
+<!-- Fixed top bar centered -->
+<header class="top-bar">
+  <div class="top-bar-inner">
+    <button class="add-note-btn" type="button" (click)="openNoteDialog()">Notiz hinzufügen</button>
+  </div>
+</header>
 
 <main class="main">
   <div class="stepper-demo">
