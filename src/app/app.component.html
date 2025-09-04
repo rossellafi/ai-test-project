@@ -285,7 +285,23 @@
       margin-block: 1.5rem;
     }
   }
+
+  .comments-demo { width: 100%; max-width: 800px; display: flex; flex-direction: column; gap: 1rem; }
+  .comments-header { display: flex; align-items: center; justify-content: space-between; }
+  .add-note-btn { background: var(--bright-blue); color: #fff; border: 0; border-radius: 999px; padding: .5rem .9rem; cursor: pointer; font-weight: 500; }
+
+  /* fixed top bar centered */
+  .top-bar{position:fixed;inset:0 0 auto 0;height:64px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--colors-base-white, #fff) 95%, transparent);z-index:1400;padding:.5rem;backdrop-filter: blur(4px);box-shadow: 0 2px 8px rgba(0,0,0,.08)}
+  .top-bar-inner{width:100%;max-width:1200px;display:flex;justify-content:center}
+  @media screen and (max-width:650px){.top-bar{height:56px;padding:.25rem}.top-bar-inner{padding:0 12px}}
 </style>
+
+<!-- Fixed top bar centered -->
+<header class="top-bar">
+  <div class="top-bar-inner">
+    <button class="add-note-btn" type="button" (click)="openNoteDialog()">Notiz hinzufügen</button>
+  </div>
+</header>
 
 <main class="main">
   <div class="stepper-demo">
@@ -311,6 +327,15 @@
       }
     </div>
   </div>
+
+  <section class="comments-demo">
+    <div class="comments-header">
+      <h2>Kommentare</h2>
+    </div>
+    <app-comment-list [comments]="comments()"></app-comment-list>
+  </section>
+
+  <app-note-dialog *ngIf="showNoteDialog()" (cancel)="closeNoteDialog()" (save)="addComment($event)"></app-note-dialog>
 </main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

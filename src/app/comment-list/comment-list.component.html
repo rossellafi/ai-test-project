@@ -1,0 +1,18 @@
+<div class="comments-wrapper">
+  <ul class="comments-list" *ngIf="comments.length; else empty">
+    <li class="comment-card" *ngFor="let c of comments">
+      <div class="comment-meta">
+        <span class="comment-date">{{ c.createdAt | date: 'medium' }}</span>
+      </div>
+      <p class="comment-text">{{ c.text }}</p>
+      <ul class="attachment-list" *ngIf="c.attachments.length">
+        <li class="attachment-item" *ngFor="let a of c.attachments">
+          <a class="attachment-link" [href]="a.url" target="_blank" rel="noopener">{{ a.name }}</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <ng-template #empty>
+    <p class="empty-state">Keine Kommentare vorhanden.</p>
+  </ng-template>
+</div>
