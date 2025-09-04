@@ -291,6 +291,11 @@
   .add-note-btn { background: var(--bright-blue); color: #fff; border: 0; border-radius: 999px; padding: .5rem .9rem; cursor: pointer; font-weight: 500; }
 </style>
 
+<!-- Fixed top action bar -->
+<div class="global-top-actions">
+  <button class="add-note-btn" type="button" (click)="openNoteDialog()">Notiz hinzufügen</button>
+</div>
+
 <main class="main">
   <div class="stepper-demo">
     <h2>Stepper Component Demo</h2>
@@ -319,7 +324,6 @@
   <section class="comments-demo">
     <div class="comments-header">
       <h2>Kommentare</h2>
-      <button class="add-note-btn" type="button" (click)="openNoteDialog()">Notiz hinzufügen</button>
     </div>
     <app-comment-list [comments]="comments()"></app-comment-list>
   </section>
