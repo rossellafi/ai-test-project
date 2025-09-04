@@ -311,6 +311,18 @@
       }
     </div>
   </div>
+
+  <section class="comments-demo">
+    <div class="comments-header">
+      <h2>Kommentare</h2>
+      <button class="add-note-btn" type="button" (click)="openNoteDialog()">Notiz hinzufügen</button>
+    </div>
+    <app-comment-list [comments]="comments()"></app-comment-list>
+  </section>
+
+  @if (showNoteDialog()) {
+    <app-note-dialog (cancel)="closeNoteDialog()" (save)="addComment($event)"></app-note-dialog>
+  }
 </main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
