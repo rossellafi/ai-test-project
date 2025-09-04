@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Output, signal } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { DragDropComponent } from "../drag-drop/drag-drop.component";
 
 @Component({
   selector: "app-note-dialog",
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, DragDropComponent],
   templateUrl: "./note-dialog.component.html",
   styleUrls: ["./note-dialog.component.css"],
 })
@@ -15,31 +16,7 @@ export class NoteDialogComponent {
   noteText = signal("");
   selectedFiles = signal<File[]>([]);
 
-  onFileChange(event: Event) {
-    const input = event.target as HTMLInputElement;
-    if (!input.files) return;
-    const files = Array.from(input.files);
-    this.selectedFiles.set([...this.selectedFiles(), ...files]);
-    // reset input so same file can be picked again if removed
-    input.value = "";
-  }
-
-  onDragOver(event: DragEvent) {
-    event.preventDefault();
-    event.stopPropagation();
-  }
-
-  onDragLeave(event: DragEvent) {
-    event.preventDefault();
-    event.stopPropagation();
-  }
-
-  onDrop(event: DragEvent) {
-    event.preventDefault();
-    event.stopPropagation();
-
-    if (!event.dataTransfer?.files) return;
-    const files = Array.from(event.dataTransfer.files);
+  onFilesFromChild(files: File[]) {
     this.selectedFiles.set([...this.selectedFiles(), ...files]);
   }
 
