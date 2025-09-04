@@ -10,6 +10,7 @@ import { Attachment, CommentItem } from "./models/comment.model";
 
 @Component({
   selector: "app-root",
+  standalone: true,
   imports: [
     RouterOutlet,
     StepperComponent,
@@ -20,7 +21,7 @@ import { Attachment, CommentItem } from "./models/comment.model";
     CommentListComponent,
   ],
   templateUrl: "./app.component.html",
-  styleUrl: "./app.component.css",
+  styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements OnDestroy {
   title = "ai-test-project";
