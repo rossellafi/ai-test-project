@@ -13,6 +13,7 @@ import { Attachment, CommentItem } from "./models/comment.model";
   selector: "app-root",
   standalone: true,
   imports: [
+    CommonModule,
     RouterOutlet,
     StepperComponent,
     ProjectCardComponent,
