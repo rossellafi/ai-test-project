@@ -324,9 +324,7 @@
     <app-comment-list [comments]="comments()"></app-comment-list>
   </section>
 
-  @if (showNoteDialog()) {
-    <app-note-dialog (cancel)="closeNoteDialog()" (save)="addComment($event)"></app-note-dialog>
-  }
+  <app-note-dialog *ngIf="showNoteDialog()" (cancel)="closeNoteDialog()" (save)="addComment($event)"></app-note-dialog>
 </main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
