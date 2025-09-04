@@ -8,7 +8,7 @@
       class="note-input"
       rows="5"
       [value]="noteText()"
-      (input)="noteText.set(($event.target as HTMLTextAreaElement).value)"
+      (input)="noteText.set($any($event.target).value)"
       placeholder="Schreibe deine Notiz..."
     ></textarea>
 
